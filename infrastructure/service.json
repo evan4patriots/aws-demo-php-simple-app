@@ -2,9 +2,9 @@
   "Parameters": {
     "Tag": "latest",
     "DesiredCount": "0",
-    "TargetGroup": "",
-    "Cluster": "",
-    "Repository": "",
-    "AppName": ""
+    "TargetGroup": "example",
+    "Cluster": "example",
+    "Repository": "example-repository",
+    "AppName": "example"
   }
 }
