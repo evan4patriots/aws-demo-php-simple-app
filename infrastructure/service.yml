@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Description: the Cluster Service for the application
+Description: The Cluster Service for the application
 Parameters:
   Tag:
     Type: String
@@ -19,17 +19,15 @@ Resources:
   ECSServiceRole:
     Type: AWS::IAM::Role
     Properties:
-      Path: /
-      AssumeRolePolicyDocument: |
-        {
-            "Statement": [{
-                "Effect": "Allow",
-                "Principal": { "Service": [ "ecs.amazonaws.com" ]},
-                "Action": [ "sts:AssumeRole" ]
-            }]
-        }
       ManagedPolicyArns:
-        - arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceRole
+      - 'arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceRole'
+      AssumeRolePolicyDocument:
+        Version: '2008-10-17'
+        Statement:
+        - Effect: Allow
+          Principal:
+            Service: 'ecs.amazonaws.com'
+          Action: 'sts:AssumeRole'
   Service:
     Type: AWS::ECS::Service
     Properties:
@@ -38,7 +36,7 @@ Resources:
       DesiredCount: !Ref DesiredCount
       TaskDefinition: !Ref TaskDefinition
       LoadBalancers:
-        - ContainerName: simple-app
+        - ContainerName: !Ref AppName
           ContainerPort: 80
           TargetGroupArn: !Ref TargetGroup
   TaskDefinition:
