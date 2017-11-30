@@ -7,7 +7,7 @@ Parameters:
   DesiredCount:
     Type: Number
     Default: 0
-  TargetGroup:
+  TargetGroupArn:
     Type: String
   Cluster:
     Type: String
@@ -38,7 +38,7 @@ Resources:
       LoadBalancers:
         - ContainerName: !Ref AppName
           ContainerPort: 80
-          TargetGroupArn: !Ref TargetGroup
+          TargetGroupArn: !Ref TargetGroupArn
   TaskDefinition:
     Type: AWS::ECS::TaskDefinition
     Properties:
