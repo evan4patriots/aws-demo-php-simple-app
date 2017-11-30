@@ -1,0 +1,10 @@
+{
+  "Parameters": {
+    "Tag": "latest",
+    "DesiredCount": "0",
+    "TargetGroup": "",
+    "Cluster": "",
+    "Repository": "",
+    "AppName": ""
+  }
+}
