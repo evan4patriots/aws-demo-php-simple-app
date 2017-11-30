@@ -1,7 +1,7 @@
 {
   "AWSEBDockerrunVersion": "1",
   "Image": {
-    "Name": "188174211009.dkr.ecr.us-east-1.amazonaws.com/test-staging-4patriots:latest",
+    "Name": "188174211009.dkr.ecr.us-east-1.amazonaws.com/example-repository:latest",
     "Update": "true"
   },
   "Ports": [
