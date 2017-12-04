@@ -11,5 +11,7 @@ ADD www /var/www/html/www
 
 EXPOSE 80
 
-# Start the service
-CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
+ADD infrastructure/run-httpd.sh /run-httpd.sh
+RUN chmod -v +x /run-httpd.sh
+
+CMD ["/run-httpd.sh"]
