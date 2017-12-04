@@ -2,7 +2,7 @@
   "Parameters": {
     "Tag": "latest",
     "DesiredCount": "1",
-    "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:188174211009:targetgroup/example/ffd1a088934d7ad8",
+    "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:188174211009:targetgroup/example-application/be92ee5395a6d741",
     "Cluster": "example",
     "Repository": "example-repository",
     "AppName": "example"
