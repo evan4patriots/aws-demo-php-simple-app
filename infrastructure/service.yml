@@ -1,10 +1,13 @@
-AWSTemplateFormatVersion: "2010-09-09"
+TemplateFormatVersion: "2010-09-09"
 Description: The Cluster Service for the application
 Parameters:
+  Tag:
+    Type: String
+    Default: latest
   DesiredCount:
     Type: Number
     Default: 0
-  TargetGroupArn:
+  TargetGroup:
     Type: String
   Cluster:
     Type: String
@@ -35,7 +38,7 @@ Resources:
       LoadBalancers:
         - ContainerName: !Ref AppName
           ContainerPort: 80
-          TargetGroupArn: !Ref TargetGroupArn
+          TargetGroupArn: !Ref TargetGroup
   TaskDefinition:
     Type: AWS::ECS::TaskDefinition
     Properties:
