@@ -23,7 +23,7 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push "${REPOSITORY_URI}:${TAG}"
+      - docker push "${REPOSITORY_URI}"
       - printf '{"tag":"%s"}' $TAG > build.json
 artifacts:
   files:
