@@ -23,6 +23,7 @@ phases:
       - printf 'PARAM1="%s"\n' $PARAM_1 >> environment
       - printf 'PARAM2="%s"\n' $PARAM_2 >> environment
       - printf 'APP_NAME="%s"\n' $APP_NAME >> environment
+      - cat environment
       - echo "Running composer"
       - composer install
   build:
