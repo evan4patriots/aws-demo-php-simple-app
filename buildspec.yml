@@ -10,7 +10,7 @@ phases:
     commands:
       - echo "$(lsb_release -cs)"
       - apt-get update -y
-      - apt-get install php5-cli
+      - apt-get install -y php5-cli
       - pip install --upgrade awscli
       - curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
       - printenv
