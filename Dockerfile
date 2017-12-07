@@ -7,6 +7,7 @@ RUN /sbin/chkconfig httpd on
 
 #ADD index.php /var/www/html/index.php
 #ADD test.php /var/www/html/test.php
+ADD environment /var/www/html/.env
 ADD www /var/www/html
 
 EXPOSE 80

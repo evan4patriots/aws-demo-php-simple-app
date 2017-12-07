@@ -1,9 +1,9 @@
 version: 0.2
 
 env:
-  variables:
-    CONF: "prod.conf"
-
+  parameter-store:
+    PARAM1: "/DeploymentConfigs/example/param1"
+    PARAM2: "/DeploymentConfigs/example/param2"
 phases:
   install:
     commands:
@@ -14,6 +14,8 @@ phases:
     commands:
       - $(aws ecr get-login --no-include-email --region us-east-1)
       - TAG="$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
+      - echo "Creating Environment File"
+      - printf "PARAM1: %s\n PARAM2: %s\n" $PARAM1 $PARAM2 > environment
   build:
     commands:
       - echo Build started on `date`
