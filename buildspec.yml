@@ -4,20 +4,26 @@ env:
   parameter-store:
     PARAM_1: "/DeploymentConfigs/example/param1"
     PARAM_2: "/DeploymentConfigs/example/param2"
+    APP_NAME: "/DeploymentConfigs/example/app_name"
 phases:
   install:
     commands:
       - echo "$(lsb_release -cs)"
       - apt-get update -y
       - pip install --upgrade awscli
+      - curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
       - printenv
   pre_build:
     commands:
       - $(aws ecr get-login --no-include-email --region us-east-1)
+      - echo "Installing composer"
       - TAG="$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
       - echo "Creating Environment File"
       - printf 'PARAM1="%s"\n' $PARAM_1 >> environment
       - printf 'PARAM2="%s"\n' $PARAM_2 >> environment
+      - printf 'APP_NAME="%s"\n' $APP_NAME >> environment
+      - echo "Running composer"
+      - composer install
   build:
     commands:
       - echo Build started on `date`

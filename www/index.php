@@ -12,7 +12,7 @@
 # Please see LICENSE.txt for applicable license terms and NOTICE.txt for applicable notices. 
 */
 
-$AppName = "AWESOME";
+$AppName = getenv('APP_NAME');
 
 ob_start();
 

@@ -3,5 +3,8 @@
 		{
 		"phpunit/phpunit": "4.*",
 		"solano/solano-phpunit": "*"
-		}
+		},
+	"require": {
+		"vlucas/phpdotenv": "^2.4"
+	}
 }
