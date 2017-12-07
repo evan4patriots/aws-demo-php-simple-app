@@ -16,8 +16,8 @@ phases:
       - $(aws ecr get-login --no-include-email --region us-east-1)
       - TAG="$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
       - echo "Creating Environment File"
-      - printf 'PARAM1="%s"' $PARAM_1' >> environment
-      - printf 'PARAM2="%s"' $PARAM_2' >> environment
+      - printf 'PARAM1="%s"\n' $PARAM_1 >> environment
+      - printf 'PARAM2="%s"\n' $PARAM_2 >> environment
   build:
     commands:
       - echo Build started on `date`
