@@ -11,6 +11,7 @@
 # This code has been modified. Portions copyright 2015 Amazon.com, Inc. or its affiliates. 
 # Please see LICENSE.txt for applicable license terms and NOTICE.txt for applicable notices. 
 */
+echo $_SERVER["DOCUMENT_ROOT"] . "/../vendor/" . "autoload.php";
 
 include_once ($_SERVER["DOCUMENT_ROOT"] . "/../vendor/" . "autoload.php");
 $dotenv = new Dotenv\Dotenv($_SERVER["DOCUMENT_ROOT"] . "/");
