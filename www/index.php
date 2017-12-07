@@ -12,6 +12,10 @@
 # Please see LICENSE.txt for applicable license terms and NOTICE.txt for applicable notices. 
 */
 
+include_once ($_SERVER["DOCUMENT_ROOT"] . "/../vendor/" . "autoload.php");
+$dotenv = new Dotenv\Dotenv($_SERVER["DOCUMENT_ROOT"] . "/");
+$dotenv->load();
+
 $AppName = getenv('APP_NAME');
 
 ob_start();
