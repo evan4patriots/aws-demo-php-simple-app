@@ -13,9 +13,9 @@
 */
 echo $_SERVER["DOCUMENT_ROOT"] . "/../vendor/" . "autoload.php";
 
-include_once ($_SERVER["DOCUMENT_ROOT"] . "/../vendor/" . "autoload.php");
-$dotenv = new Dotenv\Dotenv($_SERVER["DOCUMENT_ROOT"] . "/");
-$dotenv->load();
+//include_once($_SERVER["DOCUMENT_ROOT"] . "/../vendor/" . "autoload.php");
+//$dotenv = new Dotenv\Dotenv($_SERVER["DOCUMENT_ROOT"] . "/");
+//$dotenv->load();
 
 $AppName = getenv('APP_NAME');
 

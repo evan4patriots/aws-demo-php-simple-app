@@ -43,6 +43,11 @@ Resources:
     Type: AWS::ECS::TaskDefinition
     Properties:
       Family: !Sub ${AWS::StackName}-${AppName}
+      Volumes:
+        -
+          Name: dockersock
+          Host:
+            SourcePath: /var/run/docker.sock
       ContainerDefinitions:
         - Name: !Ref AppName
           Image: !Sub ${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/${Repository}:${Tag}
@@ -50,3 +55,15 @@ Resources:
           Memory: 128
           PortMappings:
             - ContainerPort: 80
+          LogConfiguration:
+            LogDriver: json-file
+        - Name: !Sub ${AppName}-Papertrail
+          Image: gliderlabs/logspout:latest
+          Essential: true
+          Memory: 128
+          Command:
+            - "syslog://logs6.papertrailapp.com:15139"
+          MountPoints:
+            - ContainerPath: /tmp/docker.sock
+              SourceVolume: dockersock
+              ReadOnly: false
