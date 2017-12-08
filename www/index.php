@@ -14,7 +14,7 @@
 //echo $_SERVER["DOCUMENT_ROOT"] . "/../vendor/" . "autoload.php";
 
 include_once($_SERVER["DOCUMENT_ROOT"] . "/../vendor/" . "autoload.php");
-$dotenv = new Dotenv\Dotenv(__DIR__);
+$dotenv = new Dotenv\Dotenv(__DIR__ . '../');
 try {
     $dotenv->load();
 } catch (Exception $e) {
