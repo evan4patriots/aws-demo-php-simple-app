@@ -3,9 +3,10 @@ FROM centos:7
 MAINTAINER "evan.brown" <evan.brown@4patriots.com>
 
 RUN yum -y install httpd php php-cli mod_security jq
-RUN ln -sf /proc/self/fd/1 /var/log/apache2/access.log && \
-    ln -sf /proc/self/fd/1 /var/log/apache2/error.log
 RUN /sbin/chkconfig httpd on
+
+RUN ln -sf /proc/self/fd/1 /var/log/httpd/access.log && \
+    ln -sf /proc/self/fd/1 /var/log/httpd/error.log
 
 #ADD index.php /var/www/html/index.php
 #ADD test.php /var/www/html/test.php
