@@ -4,8 +4,8 @@ MAINTAINER "evan.brown" <evan.brown@4patriots.com>
 
 RUN yum -y install httpd php php-cli mod_security jq
 
-RUN ln -sf /proc/self/fd/1 /var/log/httpd/access.log && \
-    ln -sf /proc/self/fd/1 /var/log/httpd/error.log
+RUN ln -sf /dev/stdout /var/log/httpd/access.log && \
+    ln -sf /dev/stderr /var/log/httpd/error.log
 
 RUN /sbin/chkconfig httpd on
 
