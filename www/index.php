@@ -15,7 +15,8 @@
 
 include_once($_SERVER["DOCUMENT_ROOT"] . "/../vendor/" . "autoload.php");
 $dotenv = new Dotenv\Dotenv(__DIR__);
-$dotenv->load();
+var_dump($dotenv);
+//$dotenv->load();
 
 $AppName = getenv('APP_NAME');
 
