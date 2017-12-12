@@ -26,17 +26,18 @@ phases:
       - cat environment
       - echo "Running composer"
       - composer install
+      - export DATE=`date "+%F %R"`
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build --tag "${REPOSITORY_URI}:${TAG}" --tag "${REPOSITORY_URI}:latest" .
+      - docker build --tag "${REPOSITORY_URI}:${TAG}-${DATE}" --tag "${REPOSITORY_URI}:latest"  .
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push "${REPOSITORY_URI}"
-      - printf '{"tag":"%s"}' $TAG > build.json
+      - printf '{"tag":"%s-%s"}' $TAG $DATE > build.json
 artifacts:
   files:
     - infrastructure/*
