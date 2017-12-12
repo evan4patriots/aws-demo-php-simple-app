@@ -1,8 +1,6 @@
 version: 0.2
 
 env:
-  variables:
-    DATE: ""
   parameter-store:
     PARAM_1: "/DeploymentConfigs/example/param1"
     PARAM_2: "/DeploymentConfigs/example/param2"
@@ -28,7 +26,7 @@ phases:
       - cat environment
       - echo "Running composer"
       - composer install
-      - export DATE=`date "+%F %R"`
+      - DATE='$(date "+%F %R")'
   build:
     commands:
       - echo Build started on `date`
