@@ -26,7 +26,7 @@ phases:
       - cat environment
       - echo "Running composer"
       - composer install
-      - DATE='$(date "+%F %R")'
+      - DATE="$(date '+%F_%R')"
   build:
     commands:
       - echo Build started on `date`
