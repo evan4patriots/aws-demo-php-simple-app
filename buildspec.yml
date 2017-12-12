@@ -1,6 +1,8 @@
 version: 0.2
 
 env:
+  variables:
+    DATE: ""
   parameter-store:
     PARAM_1: "/DeploymentConfigs/example/param1"
     PARAM_2: "/DeploymentConfigs/example/param2"
